@@ -50,8 +50,8 @@ public class JWTTokenValidator extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-//        String jwt=request.getHeader(SecurityConstants.JWT_HEADER).substring(7);
-        String jwt=getCookieValue(request,"JWT-TOKEN");
+        String jwt=request.getHeader(SecurityConstants.JWT_HEADER).substring(7);
+//        String jwt=getCookieValue(request,"JWT-TOKEN");
         if(jwt!=null){
             try{
                 System.out.println(jwt);
@@ -110,8 +110,8 @@ public class JWTTokenValidator extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-//        return !request.getHeader(SecurityConstants.JWT_HEADER).startsWith(SecurityConstants.JWT_Token_Type);
-        return (getCookieValue(request,"JWT-TOKEN")==null);
+        return !request.getHeader(SecurityConstants.JWT_HEADER).startsWith(SecurityConstants.JWT_Token_Type);
+//        return (getCookieValue(request,"JWT-TOKEN")==null);
 
     }
 }

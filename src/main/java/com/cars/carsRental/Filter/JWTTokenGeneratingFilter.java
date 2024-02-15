@@ -32,10 +32,10 @@ public class JWTTokenGeneratingFilter extends OncePerRequestFilter {
                         .setIssuedAt(new Date())
                         .setExpiration(new Date((new Date()).getTime()+30000000))
                         .signWith(key).compact();
-//                response.setHeader(SecurityConstants.JWT_HEADER,jwt);
-                Cookie jwtCookie= new Cookie("JWT-TOKEN",jwt);
-                jwtCookie.setMaxAge(60*60*24);//setExpiration till 1 day,
-                response.addCookie(jwtCookie);
+                response.setHeader(SecurityConstants.JWT_HEADER,jwt);
+//                Cookie jwtCookie= new Cookie("JWT-TOKEN",jwt);
+//                jwtCookie.setMaxAge(60*60*24);//setExpiration till 1 day,
+//                response.addCookie(jwtCookie);
 //                response.addCookie();
         }
         filterChain.doFilter(request,response);
