@@ -4,9 +4,6 @@ CREATE USER 'ashutosh'@'localhost' IDENTIFIED BY 'ashutosh';
 CREATE DATABASE  IF NOT EXISTS `carrental_directory`;
 USE `carrental_directory`;
 
---
--- Table structure for table `carRental`
---
 
 DROP TABLE IF EXISTS `cars`;
 
@@ -18,9 +15,7 @@ CREATE TABLE `cars` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
---
--- Data for table `employee`
---
+
 
 INSERT INTO `cars` VALUES
 	(1,'hatchback','green',20000),
@@ -44,3 +39,22 @@ INSERT INTO users VALUES
     ('miller','{bcrypt}$2a$10$u6q9E3rZxb/ZF59c8HRpgey6AeUx45OFkhYyo.PGsFVkfLGAPxpqe',1),
     ('kevin','{bcrypt}$2a$10$JgcRy8aDJkRMr4dYZnHai..gWfyVzcd7uGnN/787YTh/noSuKE1bW',1),
 	('alok','{bcrypt}$2a$10$K/gwcBpQx/ao53QVIYCopuakPa5zsrizdQE2e8wqwhDIc0hUHwvsG',1);
+
+	DROP TABLE IF EXISTS `roles`;
+
+    CREATE TABLE `roles`(
+    `user_name` varchar(20) NOT NULL,
+    `authority` varchar(20) NOT NULL,
+    UNIQUE KEY(`user_name`,`authority`),
+    FOREIGN KEY(`user_name`)
+    REFERENCES `users` (`user_name`)
+    )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+    INSERT INTO `roles` VALUES
+    	('john','ROLE_USER'),
+        ('sushant','ROLE_USER'),
+        ('miller','ROLE_USER'),
+        ('kevin','ROLE_MANAGER'),
+        ('kevin','ROLE_USER'),
+        ('alok','ROLE_ADMIN'),
+        ('alok','ROLE_USER');
