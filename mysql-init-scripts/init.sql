@@ -1,5 +1,5 @@
 CREATE USER 'ashutosh'@'localhost' IDENTIFIED BY 'ashutosh';
- GRANT ALL ON javabase.* TO 'ashutosh'@'localhost' IDENTIFIED BY 'ashutosh';
+GRANT ALL ON carrental_directory.* TO 'ashutosh'@'localhost';
 
 CREATE DATABASE  IF NOT EXISTS `carrental_directory`;
 USE `carrental_directory`;
