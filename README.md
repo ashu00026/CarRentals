@@ -28,7 +28,7 @@ A Spring-boot,Mysql application used to keep track of list of avaiable entities 
    - The Spring Boot application will be accessible at [http://localhost:8080](http://localhost:8080).
    - The MySQL database can be accessed on port 3306.
    - Go to [http://localhost:8080/api/login](http://localhost:8080/api/login) Enter username:john and password: John123.
-   - If the msg popped if `You are Logged in successfully` then you are good to go!
+   - If the msg popped is `You are Logged in successfully` then you are good to go!
 
 ## Directory Structure
 ```
